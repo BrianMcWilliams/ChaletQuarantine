@@ -7,25 +7,30 @@ using UnityEngine.Networking;
 public class PlayerController : NetworkBehaviour
 {
     public Animator m_Animator;
-    public Camera m_Camera;
+    Camera m_Camera;
     public NavMeshAgent m_Agent;
     public GameObject m_PlayerPrefab;
+    public GameObject m_PlayerCameraPrefab;
 
+    GameObject m_PlayerCameraInstance;
     // Update is called once per frame
     private void Start()
     {
         m_Animator.SetBool("Static_b", true);
 
-        m_Camera.GetComponentInChildren<Camera>();
         m_Animator = GetComponent<Animator>();
         m_Agent = GetComponent<NavMeshAgent>();
         m_Agent.updatePosition = true;
         m_Agent.updateRotation = true;
         m_Agent.updateUpAxis = true;
 
-        if(isLocalPlayer == false)
-        { 
-            m_Camera.gameObject.active = false; 
+        if(localPlayerAuthority)
+        {
+            m_PlayerCameraInstance = Instantiate(m_PlayerCameraPrefab);
+
+            EzCamera ezCamera = m_PlayerCameraInstance.GetComponent<EzCamera>();
+            ezCamera.SetCameraTarget(transform);
+            m_Camera = m_PlayerCameraInstance.GetComponent<Camera>();
         }
     }
     void Update()
