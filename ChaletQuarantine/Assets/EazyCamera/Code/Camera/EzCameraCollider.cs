@@ -149,7 +149,7 @@ public class EzCameraCollider : MonoBehaviour
         {
             if (Physics.Linecast(m_controlledCamera.Target.position, m_pointBehindCamera, out hit, m_layermask))
             {
-#if UNITY_EDITOR
+#if UNIY_EDITOR
                 lineColor = Color.red;
                 Debug.Log("camera is occluded by " + hit.collider.gameObject.name);
 #endif
@@ -189,9 +189,7 @@ public class EzCameraCollider : MonoBehaviour
 
         for (int i = 0; i < m_originalClipPlanePoints.Length; ++i)
         {
-#if UNITY_EDITOR
             Color lineColor = Color.blue;
-#endif
             if (Physics.Linecast(m_controlledCamera.Target.position, m_originalClipPlanePoints[i], out hit, m_layermask))
             {
                 lineColor = Color.red;

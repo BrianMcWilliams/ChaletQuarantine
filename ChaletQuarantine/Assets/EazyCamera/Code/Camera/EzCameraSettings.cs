@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
 
 public class EzCameraSettings : ScriptableObject 
 {
-
+    /*
     [MenuItem("Eazy Camera/Create Camera Settings")]
     static void Init()
     {
@@ -15,7 +13,7 @@ public class EzCameraSettings : ScriptableObject
         AssetDatabase.Refresh();
         AssetDatabase.SaveAssets();
     }
-
+    */
     public EzCameraSettings()
     {
         StoreDefaultValues();

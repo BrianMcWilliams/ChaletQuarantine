@@ -24,17 +24,28 @@ public class PlayerController : NetworkBehaviour
         m_Agent.updateRotation = true;
         m_Agent.updateUpAxis = true;
 
-        if(localPlayerAuthority)
+#if !UNITY_EDITOR
+        if(isLocalPlayer || hasAuthority)
+#endif
         {
             m_PlayerCameraInstance = Instantiate(m_PlayerCameraPrefab);
 
             EzCamera ezCamera = m_PlayerCameraInstance.GetComponent<EzCamera>();
             ezCamera.SetCameraTarget(transform);
             m_Camera = m_PlayerCameraInstance.GetComponent<Camera>();
+
+            Canvas myCanvas = GetComponentInChildren<Canvas>();
+            myCanvas.renderMode = RenderMode.ScreenSpaceCamera;
+            myCanvas.worldCamera = m_Camera;
+            myCanvas.planeDistance = 1;
+            myCanvas.gameObject.SetActive(true);
         }
     }
     void Update()
     {
+        if (!m_Animator || !m_Camera || !m_Agent)
+            return; //Waiting for init
+
         m_Animator.SetFloat("Speed_f", m_Agent.velocity.magnitude);
 
         if (hasAuthority == false)
@@ -51,6 +62,14 @@ public class PlayerController : NetworkBehaviour
                 CmdRequestMove(hit.point);
             }
         }
+
+        /*
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Canvas myCanvas = GetComponentInChildren<Canvas>();
+            myCanvas.gameObject.SetActive(myCanvas.gameObject.activeSelf);
+        }
+        */
     }
 
     [Command]
