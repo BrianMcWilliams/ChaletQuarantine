@@ -16,6 +16,8 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+
         m_Animator.SetBool("Static_b", true);
 
         m_Animator = GetComponent<Animator>();
@@ -29,9 +31,9 @@ public class PlayerController : NetworkBehaviour
 #endif
         {
             m_PlayerCameraInstance = Instantiate(m_PlayerCameraPrefab);
-
-            EzCamera ezCamera = m_PlayerCameraInstance.GetComponent<EzCamera>();
-            ezCamera.SetCameraTarget(transform);
+            PlayerCameraManager playerCameraManager = m_PlayerCameraInstance.GetComponent<PlayerCameraManager>();
+            m_PlayerCameraInstance.transform.position = playerCameraManager.m_CameraTransform.position + transform.position;
+            playerCameraManager.m_LookAtTarget = gameObject;
             m_Camera = m_PlayerCameraInstance.GetComponent<Camera>();
 
             Canvas myCanvas = GetComponentInChildren<Canvas>();
@@ -39,6 +41,9 @@ public class PlayerController : NetworkBehaviour
             myCanvas.worldCamera = m_Camera;
             myCanvas.planeDistance = 1;
             myCanvas.gameObject.SetActive(true);
+
+            TextMesh playerLabel = GetComponentInChildren<TextMesh>();
+            playerLabel.text = GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_PlayerName;
         }
     }
     void Update()

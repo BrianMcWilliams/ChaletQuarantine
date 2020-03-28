@@ -2,15 +2,19 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AIManager
-    - EzCamera
-    - EzCameraController
-    - EzCameraSettings
     - HUD
     - NetworkPlayerObject
+    - PlayerCameraManager
     - PlayerController
     - UnityEngine.AI.NavMeshModifier
     - UnityEngine.AI.NavMeshSurface
     - ZombieBehaviour
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -28,7 +32,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
-    - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkAnimator
     - UnityEngine.Networking.NetworkCallbacks
@@ -62,6 +65,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 90
@@ -75,45 +82,47 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9690}
+      Script: {instanceID: 9712}
     - Class: 114
-      Script: {instanceID: 9884}
+      Script: {instanceID: 9918}
     - Class: 114
-      Script: {instanceID: 9896}
+      Script: {instanceID: 9956}
     - Class: 114
-      Script: {instanceID: 9934}
+      Script: {instanceID: 10002}
     - Class: 114
-      Script: {instanceID: 9980}
+      Script: {instanceID: 10080}
     - Class: 114
-      Script: {instanceID: 10058}
+      Script: {instanceID: 10150}
     - Class: 114
-      Script: {instanceID: 10110}
+      Script: {instanceID: 10436}
     - Class: 114
-      Script: {instanceID: 10128}
+      Script: {instanceID: 10538}
     - Class: 114
-      Script: {instanceID: 10516}
+      Script: {instanceID: 10730}
     - Class: 114
-      Script: {instanceID: 10708}
+      Script: {instanceID: 10758}
     - Class: 114
-      Script: {instanceID: 10736}
+      Script: {instanceID: 10772}
     - Class: 114
-      Script: {instanceID: 10750}
+      Script: {instanceID: 10914}
     - Class: 114
-      Script: {instanceID: 10818}
+      Script: {instanceID: 11174}
     - Class: 114
-      Script: {instanceID: 10892}
+      Script: {instanceID: 11184}
     - Class: 114
-      Script: {instanceID: 11152}
+      Script: {instanceID: 11398}
     - Class: 114
-      Script: {instanceID: 11444}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11452}
+      Script: {instanceID: 11474}
     - Class: 114
-      Script: {instanceID: 11576}
+      Script: {instanceID: 11718}
     - Class: 114
-      Script: {instanceID: 11696}
+      Script: {instanceID: 11874}
     - Class: 114
-      Script: {instanceID: 11852}
+      Script: {instanceID: 11942}
+    - Class: 114
+      Script: {instanceID: 51122}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -157,6 +166,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -175,42 +186,48 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 109
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9690}
+      Script: {instanceID: 9712}
     - Class: 114
-      Script: {instanceID: 9884}
+      Script: {instanceID: 9918}
     - Class: 114
-      Script: {instanceID: 9896}
+      Script: {instanceID: 9956}
     - Class: 114
-      Script: {instanceID: 9934}
+      Script: {instanceID: 10002}
     - Class: 114
-      Script: {instanceID: 9980}
+      Script: {instanceID: 10436}
     - Class: 114
-      Script: {instanceID: 10110}
+      Script: {instanceID: 10468}
     - Class: 114
-      Script: {instanceID: 10414}
+      Script: {instanceID: 10730}
     - Class: 114
-      Script: {instanceID: 10708}
-    - Class: 114
-      Script: {instanceID: 10750}
-    - Class: 114
-      Script: {instanceID: 10818}
-    - Class: 114
-      Script: {instanceID: 10892}
+      Script: {instanceID: 10772}
     - Class: 114
       Script: {instanceID: 10914}
     - Class: 114
-      Script: {instanceID: 11444}
+      Script: {instanceID: 10936}
     - Class: 114
-      Script: {instanceID: 11452}
+      Script: {instanceID: 11184}
     - Class: 114
-      Script: {instanceID: 11576}
+      Script: {instanceID: 11202}
     - Class: 114
-      Script: {instanceID: 11696}
+      Script: {instanceID: 11398}
     - Class: 114
-      Script: {instanceID: 11852}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11920}
+      Script: {instanceID: 11474}
+    - Class: 114
+      Script: {instanceID: 11666}
+    - Class: 114
+      Script: {instanceID: 11718}
+    - Class: 114
+      Script: {instanceID: 11874}
+    - Class: 114
+      Script: {instanceID: 11942}
+    - Class: 114
+      Script: {instanceID: 51122}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -254,12 +271,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
-  - hash:
-      serializedVersion: 2
-      Hash: 49ee2be8311dc935edb4ac95bd9ed39e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EzMotor
   - hash:
       serializedVersion: 2
       Hash: 5bd9a19c7b5f76c563418e28f48a561b
@@ -346,12 +357,6 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: a2590a619000ce81b195fc5d649a0cfd
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EzCameraCollider
-  - hash:
-      serializedVersion: 2
       Hash: 8d4458b476a9a4dd8df843a849fcfffa
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityEngine.AI
@@ -380,12 +385,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
-  - hash:
-      serializedVersion: 2
-      Hash: e216004f162b8a3e5ee2ccf013907a78
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EzCameraSettings
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -496,12 +495,6 @@ ScriptsOnlyBuild:
     className: TMP_Asset
   - hash:
       serializedVersion: 2
-      Hash: d9f4ba913c944ad5c74184dd57f866c1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EzPlayerController
-  - hash:
-      serializedVersion: 2
       Hash: d4020bafcd3ccbb5601a6e6c8ac78be0
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -556,22 +549,10 @@ ScriptsOnlyBuild:
     className: NavMeshModifierVolume
   - hash:
       serializedVersion: 2
-      Hash: 63b3c18a6655b6ed7db0de3d48f727a5
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EzLockOnTarget
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EzCameraController
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -590,12 +571,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
-  - hash:
-      serializedVersion: 2
-      Hash: 6bbe7153d152304ac10ae748a8cd9b7b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EzAnimator
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -704,12 +679,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
-  - hash:
-      serializedVersion: 2
-      Hash: 3b930ba07f36edfa92032e58f49239c1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EzCamera
   - hash:
       serializedVersion: 2
       Hash: 1dcb82730d983b77cec736c6ef19f814
@@ -842,6 +811,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 8b4e2537cd0b21b2e262ad9d8f28c658
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerCameraManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/MatchMake.unity
