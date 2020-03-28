@@ -7,7 +7,6 @@ using UnityEngine.Networking;
 public class NetworkPlayerObject : NetworkBehaviour
 {
     public GameObject m_PlayerPrefab;
-
     // Update is called once per frame
     private void Start()
     {
