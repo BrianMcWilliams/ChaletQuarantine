@@ -10,17 +10,18 @@ public class NetworkPlayerObject : NetworkBehaviour
     // Update is called once per frame
     private void Start()
     {
-        if (hasAuthority == false)
+        if (isLocalPlayer == false)
             return;
 
-        CmdServerRequestSpawn();
+        CmdServerRequestSpawn(GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_PlayerName);
     }
 
     GameObject myGameObject;
     [Command]
-    void CmdServerRequestSpawn()
+    void CmdServerRequestSpawn(string playerName)
     {
-        myGameObject = Instantiate(m_PlayerPrefab);
+        myGameObject = Instantiate(m_PlayerPrefab, GameObject.FindGameObjectWithTag("Player_Spawn").transform);
+        transform.Find("Player Label").GetComponent<TextMesh>().text = playerName;
 
         NetworkServer.SpawnWithClientAuthority(myGameObject, connectionToClient);
     }

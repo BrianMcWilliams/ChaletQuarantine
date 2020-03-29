@@ -11,6 +11,7 @@ public class PlayerController : NetworkBehaviour
     public NavMeshAgent m_Agent;
     public GameObject m_PlayerPrefab;
     public GameObject m_PlayerCameraPrefab;
+    public GameObject m_TurretPrefab;
 
     GameObject m_PlayerCameraInstance;
     // Update is called once per frame
@@ -42,8 +43,14 @@ public class PlayerController : NetworkBehaviour
             myCanvas.planeDistance = 1;
             myCanvas.gameObject.SetActive(true);
 
-            TextMesh playerLabel = GetComponentInChildren<TextMesh>();
-            playerLabel.text = GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_PlayerName;
+            GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_LocalPlayer = gameObject;
+            GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_PlayerCamera = m_Camera;
+            TextMesh[] playerLabels = GetComponentsInChildren<TextMesh>();
+            foreach(TextMesh playerLabel in playerLabels)
+                playerLabel.text = GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_PlayerName;
+
+            GameObject.FindGameObjectWithTag("Network Manager").GetComponent<InteractableManager>().OnGameStartLocally();
+            GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_LocalPlayer.GetComponentInChildren<Canvas>().GetComponent<HUD>().OnMoneyChange();
         }
     }
     void Update()
@@ -53,10 +60,13 @@ public class PlayerController : NetworkBehaviour
 
         m_Animator.SetFloat("Speed_f", m_Agent.velocity.magnitude);
 
+#if !UNITY_EDITOR
         if (hasAuthority == false)
             return;
 
-        if(Input.GetMouseButton(0))
+#endif
+
+        if (Input.GetMouseButton(0))
         {
             Ray ray = m_Camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -67,14 +77,25 @@ public class PlayerController : NetworkBehaviour
                 CmdRequestMove(hit.point);
             }
         }
+    }
 
-        /*
-        if(Input.GetKeyDown(KeyCode.Escape))
+    public void SpawnTurret()
+    {
+#if !UNITY_EDITOR
+        if(isLocalPlayer || hasAuthority)
+#endif
         {
-            Canvas myCanvas = GetComponentInChildren<Canvas>();
-            myCanvas.gameObject.SetActive(myCanvas.gameObject.activeSelf);
+            CmdSpawnTurret();
         }
-        */
+
+    }
+
+    [Command] 
+    void CmdSpawnTurret()
+    {
+        GameObject turret = Instantiate(m_TurretPrefab, transform.position + Vector3.up, transform.rotation);
+
+        NetworkServer.SpawnWithClientAuthority(turret, connectionToClient);
     }
 
     [Command]

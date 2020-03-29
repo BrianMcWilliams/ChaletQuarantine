@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6274433212606827946}
   - component: {fileID: -6683589600368137878}
   - component: {fileID: 2293078155015398018}
+  - component: {fileID: -182224554605042495}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: Untagged
@@ -187,6 +188,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &-182224554605042495
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5259383722564289831}
+  m_Enabled: 1
 --- !u!1 &8473638049432905210
 GameObject:
   m_ObjectHideFlags: 0

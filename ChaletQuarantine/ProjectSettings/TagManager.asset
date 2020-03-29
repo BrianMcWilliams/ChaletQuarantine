@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Network Manager
+  - UI_CashCount
+  - Player_Spawn
+  - Zombie_Spawn
   layers:
   - Default
   - TransparentFX
