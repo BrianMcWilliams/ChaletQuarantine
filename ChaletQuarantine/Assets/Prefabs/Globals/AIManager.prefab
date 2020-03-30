@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7467102771513212073}
   - component: {fileID: 7467102771513212074}
-  - component: {fileID: 2948305135244216276}
+  - component: {fileID: -8244868196551508371}
   m_Layer: 0
   m_Name: AIManager
   m_TagString: Untagged
@@ -44,11 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134a2af226a7250489b01df70dfbf53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   m_DeltaTime: 10
   m_LastUpdatedTime: 0
   m_ZombiePrefab: {fileID: 8488913483517511535, guid: 3ef118fc589004f47aa5a37ffa682d76,
     type: 3}
---- !u!114 &2948305135244216276
+--- !u!114 &-8244868196551508371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,27 +59,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7467102771513212072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 1
-  m_LocalPlayerAuthority: 0
+  sceneId: 0
+  serverOnly: 1
+  m_AssetId: 

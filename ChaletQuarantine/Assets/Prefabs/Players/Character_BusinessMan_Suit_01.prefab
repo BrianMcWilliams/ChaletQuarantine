@@ -923,11 +923,10 @@ GameObject:
   m_Component:
   - component: {fileID: 472912}
   - component: {fileID: 9581884}
-  - component: {fileID: 1988017142}
   - component: {fileID: 1988017141}
-  - component: {fileID: 1988017143}
-  - component: {fileID: -5762374239764356261}
-  - component: {fileID: -3685763446388993752}
+  - component: {fileID: 8379308793974191323}
+  - component: {fileID: 3480296307576756843}
+  - component: {fileID: 5555239592112090363}
   m_Layer: 0
   m_Name: Character_BusinessMan_Suit_01
   m_TagString: Player
@@ -982,24 +981,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1988017142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb1d837e87e53045a51a8b7eef88af0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 9581884}
-  m_Agent: {fileID: 1988017141}
-  m_PlayerPrefab: {fileID: 128674}
-  m_PlayerCameraPrefab: {fileID: 5259383722564289831, guid: 29fbcf3a6b975cb4caa820b5bae2021b,
-    type: 3}
-  m_TurretPrefab: {fileID: 136348, guid: 2e46a61a673878146b57c8d624a6a95f, type: 3}
 --- !u!195 &1988017141
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1022,7 +1003,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1988017143
+--- !u!114 &8379308793974191323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1031,31 +1012,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 128674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
---- !u!114 &-5762374239764356261
+  sceneId: 0
+  serverOnly: 1
+  m_AssetId: 
+--- !u!114 &3480296307576756843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1064,39 +1027,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 128674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13d6c522af31447398568cc65334232b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2eb1d837e87e53045a51a8b7eef88af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.033333335
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
---- !u!114 &-3685763446388993752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e18e15ed5495c434d969378156376a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   m_Animator: {fileID: 9581884}
-  m_ParameterSendBits: 1025
-  param0: 
-  param1: 
-  param2: 
-  param3: 
-  param4: 
-  param5: 
+  m_Agent: {fileID: 1988017141}
+  m_PlayerPrefab: {fileID: 128674}
+  m_PlayerCameraPrefab: {fileID: 5259383722564289831, guid: 29fbcf3a6b975cb4caa820b5bae2021b,
+    type: 3}
+  m_TurretPrefab: {fileID: 497813082520104645, guid: 20e7f8fbe7b4e4245b7de644cf763f3c,
+    type: 3}
+--- !u!114 &5555239592112090363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 1
+  syncInterval: 0.1
+  clientAuthority: 1
+  animator: {fileID: 9581884}
 --- !u!1 &131922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2883,7 +2841,6 @@ GameObject:
   - component: {fileID: 5596155200106636661}
   - component: {fileID: 7978203730284213301}
   - component: {fileID: 4047899459048073569}
-  - component: {fileID: 8562806453612907108}
   m_Layer: 0
   m_Name: Player Label
   m_TagString: Untagged
@@ -2965,39 +2922,6 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294953912
---- !u!114 &8562806453612907108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231936252436670974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!1 &8531205809330666075
 GameObject:
   m_ObjectHideFlags: 0

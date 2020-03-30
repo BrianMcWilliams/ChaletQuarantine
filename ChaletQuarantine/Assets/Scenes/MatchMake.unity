@@ -237,9 +237,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1187580881}
+      - m_Target: {fileID: 1117128333}
         m_MethodName: SetPlayerName
-        m_Mode: 0
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -247,7 +247,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -901,28 +901,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2758343201427446110, guid: 60d259ecc3b40874da8cf9162aee10c2,
-        type: 3}
-      propertyPath: m_SpawnPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2758343201427446110, guid: 60d259ecc3b40874da8cf9162aee10c2,
-        type: 3}
-      propertyPath: m_PlayerPrefab
-      value: 
-      objectReference: {fileID: 8673784076183704834, guid: 90fbd0717805ced4c846ad7baff50384,
-        type: 3}
-    - target: {fileID: 2758343201427446110, guid: 60d259ecc3b40874da8cf9162aee10c2,
-        type: 3}
-      propertyPath: m_SpawnPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 8673784076183704834, guid: 90fbd0717805ced4c846ad7baff50384,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60d259ecc3b40874da8cf9162aee10c2, type: 3}
---- !u!114 &1187580881 stripped
+--- !u!114 &1117128333 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1187580881, guid: 60d259ecc3b40874da8cf9162aee10c2,
+  m_CorrespondingSourceObject: {fileID: 5941206123033451472, guid: 60d259ecc3b40874da8cf9162aee10c2,
     type: 3}
   m_PrefabInstance: {fileID: 1117128331}
   m_PrefabAsset: {fileID: 0}

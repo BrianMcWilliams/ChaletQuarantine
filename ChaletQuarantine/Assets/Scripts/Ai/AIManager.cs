@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 
 public class AIManager : NetworkBehaviour
 {
@@ -17,6 +17,9 @@ public class AIManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!hasAuthority)
+            return;
+
         if((Time.time - m_LastUpdatedTime) > m_DeltaTime)
         {
             m_LastUpdatedTime = Time.time;

@@ -1,28 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Networking;
+using Mirror;
 
 public class NetworkPlayerObject : NetworkBehaviour
 {
     public GameObject m_PlayerPrefab;
-    // Update is called once per frame
+    [SyncVar]
+    public string m_PlayerName;
     private void Start()
     {
-        if (isLocalPlayer == false)
-            return;
-
-        CmdServerRequestSpawn(GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_PlayerName);
+        CmdServerRequestSpawn();
+        GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_LocalPlayer = gameObject;
     }
 
+    public void SetPlayerName(string newName)
+    {
+        m_PlayerName = newName;
+    }
     GameObject myGameObject;
     [Command]
-    void CmdServerRequestSpawn(string playerName)
+    void CmdServerRequestSpawn()
     {
         myGameObject = Instantiate(m_PlayerPrefab, GameObject.FindGameObjectWithTag("Player_Spawn").transform);
-        transform.Find("Player Label").GetComponent<TextMesh>().text = playerName;
 
-        NetworkServer.SpawnWithClientAuthority(myGameObject, connectionToClient);
+        NetworkServer.Spawn(myGameObject, connectionToClient);
     }
 }

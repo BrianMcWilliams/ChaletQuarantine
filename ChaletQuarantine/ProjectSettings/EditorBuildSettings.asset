@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/PolygonCity/Scenes/Demo.unity
     guid: 35299a6a99d6dfe4bb709527ba95aab0
   - enabled: 1
-    path: Assets/SimpleApocalypse/_Demo/SA_Demo.unity
+    path: Assets/Scenes/SA_Demo.unity
     guid: 04369fb899db60f48a62f06cb460ce80
   m_configObjects: {}

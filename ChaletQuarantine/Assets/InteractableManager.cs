@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class InteractableManager : MonoBehaviour
 {
-    private List<DoorLootInteraction> m_DoorLootInteractions;
+    private List<DoorLootInteraction> m_DoorLootInteractions = new List<DoorLootInteraction>();
     private bool m_GameStartedLocally = false;
     // Start is called before the first frame update
     void Start()
     {
-        m_DoorLootInteractions = new List<DoorLootInteraction>();
     }
 
     public void RegisterInteractable(DoorLootInteraction interaction)

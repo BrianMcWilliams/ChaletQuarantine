@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class PlayerInfo : NetworkBehaviour
+public class PlayerInfo : MonoBehaviour
 {
     public string m_PlayerName = "";
     public GameObject m_LocalPlayer;

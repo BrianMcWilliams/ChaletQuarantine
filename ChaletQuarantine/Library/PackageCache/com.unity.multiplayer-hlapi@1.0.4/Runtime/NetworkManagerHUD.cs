@@ -38,6 +38,48 @@ namespace UnityEngine.Networking
             manager = GetComponent<NetworkManager>();
         }
 
+        void Update()
+        {
+            if (!showGUI)
+                return;
+
+            if (!manager.IsClientConnected() && !NetworkServer.active && manager.matchMaker == null)
+            {
+                if (UnityEngine.Application.platform != RuntimePlatform.WebGLPlayer)
+                {
+                    if (Input.GetKeyDown(KeyCode.S))
+                    {
+                        manager.StartServer();
+                    }
+                    if (Input.GetKeyDown(KeyCode.H))
+                    {
+                        manager.StartHost();
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    manager.StartClient();
+                }
+            }
+            if (NetworkServer.active)
+            {
+                if (manager.IsClientConnected())
+                {
+                    if (Input.GetKeyDown(KeyCode.X))
+                    {
+                        manager.StopHost();
+                    }
+                }
+                else
+                {
+                    if (Input.GetKeyDown(KeyCode.X))
+                    {
+                        manager.StopServer();
+                    }
+                }
+            }
+        }
+
         void OnGUI()
         {
             if (!showGUI)

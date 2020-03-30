@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Networking;
+using Mirror;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -12,7 +12,6 @@ public class PlayerController : NetworkBehaviour
     public GameObject m_PlayerPrefab;
     public GameObject m_PlayerCameraPrefab;
     public GameObject m_TurretPrefab;
-
     GameObject m_PlayerCameraInstance;
     // Update is called once per frame
     private void Start()
@@ -27,9 +26,9 @@ public class PlayerController : NetworkBehaviour
         m_Agent.updateRotation = true;
         m_Agent.updateUpAxis = true;
 
-#if !UNITY_EDITOR
+        GameObject.FindGameObjectWithTag("Network Manager").GetComponent<NetworkPlayerManager>().AddPlayer(gameObject);
+
         if(isLocalPlayer || hasAuthority)
-#endif
         {
             m_PlayerCameraInstance = Instantiate(m_PlayerCameraPrefab);
             PlayerCameraManager playerCameraManager = m_PlayerCameraInstance.GetComponent<PlayerCameraManager>();
@@ -45,8 +44,8 @@ public class PlayerController : NetworkBehaviour
 
             GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_LocalPlayer = gameObject;
             GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_PlayerCamera = m_Camera;
-            TextMesh[] playerLabels = GetComponentsInChildren<TextMesh>();
-            foreach(TextMesh playerLabel in playerLabels)
+            TextMesh[] meshes = GetComponentsInChildren<TextMesh>();
+            foreach (TextMesh playerLabel in meshes)
                 playerLabel.text = GameObject.FindGameObjectWithTag("Network Manager").GetComponent<PlayerInfo>().m_PlayerName;
 
             GameObject.FindGameObjectWithTag("Network Manager").GetComponent<InteractableManager>().OnGameStartLocally();
@@ -60,11 +59,8 @@ public class PlayerController : NetworkBehaviour
 
         m_Animator.SetFloat("Speed_f", m_Agent.velocity.magnitude);
 
-#if !UNITY_EDITOR
         if (hasAuthority == false)
             return;
-
-#endif
 
         if (Input.GetMouseButton(0))
         {
@@ -81,9 +77,7 @@ public class PlayerController : NetworkBehaviour
 
     public void SpawnTurret()
     {
-#if !UNITY_EDITOR
         if(isLocalPlayer || hasAuthority)
-#endif
         {
             CmdSpawnTurret();
         }
@@ -95,7 +89,7 @@ public class PlayerController : NetworkBehaviour
     {
         GameObject turret = Instantiate(m_TurretPrefab, transform.position + Vector3.up, transform.rotation);
 
-        NetworkServer.SpawnWithClientAuthority(turret, connectionToClient);
+        NetworkServer.Spawn(turret, connectionToClient);
     }
 
     [Command]
